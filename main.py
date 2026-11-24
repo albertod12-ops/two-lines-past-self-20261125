@@ -32,6 +32,8 @@ def main() -> None:
     path = "/output/entry.txt"
     with open(path, "w", encoding="utf-8") as f:
         f.write(ENTRY)
+    # The grader collects /output as another user, so the file must be
+    # world-readable whatever the umask: chmod it explicitly.
     os.chmod(path, 0o644)
 
 
