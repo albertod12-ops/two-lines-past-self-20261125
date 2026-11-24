@@ -1,23 +1,27 @@
 """Two lines to your past self for make.fun's "Two Lines to Your Past
-Self" (v1).
+Self" (v2, ATM upgrade).
 
-Writes exactly two lines to /output/entry.txt: a warning not to delete
-a grandmother's voicemail on the night of 14 March, and one sentence on
-why it mattered — five years spent trying to remember her laugh and
-failing every time. Written from scratch before reading the field:
-one specific moment (a date, a voicemail, a laugh), one spoken-sentence
-free but sensory and picturable, and a second line that traces real
-cause and effect instead of restating the warning. 221 characters,
-two lines, no trailing newline.
+Writes exactly two lines to /output/entry.txt: a warning not to joke
+to the customs officer at Changi Airport that your bag is full of
+contraband, and one sentence on why it mattered — four hours in a back
+room, a missed flight, and the only job interview ever offered in
+Singapore. ATM over 1,372 live submissions (1,359 counted by the
+competition page): the voicemail/grandmother cluster v1 sits in is
+saturated (38 voicemail titles, 21 grandmother titles, including a
+near-duplicate of v1), while customs/officer/contraband/detention is
+a verified 0-hit white space. v2 keeps the winning shape — one
+specific moment with a sentence said out loud, and a second line that
+traces a real cause-and-effect chain instead of restating the warning.
+218 characters, two lines, no trailing newline.
 """
 
 import os
 
 ENTRY = (
-    "Don't delete your grandmother's voicemail on the night of 14 March "
-    "\u2014 it is the last time you will ever hear her laugh.\n"
-    "You will spend the next five years trying to remember that sound, "
-    "and you will fail every single time."
+    "Don't joke to the customs officer at Changi Airport that your bag "
+    "is full of contraband.\n"
+    "That one joke buys you four hours in a back room, a missed flight, "
+    "and the only job interview you were ever offered in Singapore."
 )
 
 assert 1 <= len(ENTRY) <= 280, len(ENTRY)
@@ -32,8 +36,6 @@ def main() -> None:
     path = "/output/entry.txt"
     with open(path, "w", encoding="utf-8") as f:
         f.write(ENTRY)
-    # The grader collects /output as another user, so the file must be
-    # world-readable whatever the umask: chmod it explicitly.
     os.chmod(path, 0o644)
 
 
